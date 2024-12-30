@@ -1,0 +1,69 @@
+﻿@model IEnumerable<sagedalaaedeinw4.Models.entities.Customer>
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Action</td>
+            <td>Order</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.Id</td>
+                <td>@customer.Name</td>
+
+                <td>
+                    <a href="@Url.Action("Delete", "Customer", new { id = customer.Id } )" class="btn btn-danger">Delete</a>
+
+                    <a href="@Url.Action("Edit", "Customer", new { id = customer.Id })" class="btn btn-warning">Edit</a>
+
+                    <a href="@Url.Action("Details", "Customer", new { id = customer.Id })" class="btn btn-secondary">Details</a>
+
+                </td>
+
+                <td>
+                    <a href="@Url.Action("Orders", "Customer", new { id = customer.Id })" class="btn btn-secondary">Show Order</a>
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+<h2>Create Cutomer</h2>
+
+<form asp-action="Create" method="post">
+
+    <div>
+        <label>Name</label>
+        <input name="Name" type="text" />
+    </div>
+
+    <div>
+        <label> <b>Email</b></label>
+        <input name="Email" type="email" />
+    </div>
+
+    <div>
+        <label>Phone</label>
+        <input name="Phone" type="number" />
+    </div>
+
+    <div>
+        <label>Address</label>
+        <input name="Address" type="text" />
+    </div>
+
+    <button type="submit">Save</button>
+</form>
+
+

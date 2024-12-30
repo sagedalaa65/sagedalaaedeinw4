@@ -1,0 +1,66 @@
+﻿@model IEnumerable<sagedalaaedeinw4.Models.entities.Product>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Description</td>
+            <td>Price</td>
+            <td>Stock Quantity</td>
+            <td>Category</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Price</td>
+                <td>@product.StockQuantity</td>
+                <td>@product.Category</td>
+                <td>
+                    <a href="@Url.Action("Delete", "Product", new { id = product.Id })" class="btn btn-danger">Delete</a>
+                    <a href="@Url.Action("Edit", "Product", new { id = product.Id })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("Details", "Product", new { id = product.Id })" class="btn btn-secondary">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Create Product</h2>
+
+<form asp-action="Create" method="post">
+
+    <div>
+        <label>Name</label>
+        <input name="Name" type="text" />
+    </div>
+
+    <div>
+        <label> <b>Description</b></label>
+        <input name="Description" type="text" />
+    </div>
+
+    <div>
+        <label>Price</label>
+        <input name="Price" type="number" />
+    </div>
+
+    <div>
+        <label>StockQuantity</label>
+        <input name="StockQuantity" type="number" />
+    </div>
+
+    <div>
+        <label> <b>Category</b></label>
+        <input name="Category" type="text" />
+    </div>
+
+
+    <button type="submit">Save</button>
+</form>

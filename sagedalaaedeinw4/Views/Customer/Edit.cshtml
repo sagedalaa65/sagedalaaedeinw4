@@ -1,0 +1,32 @@
+﻿@model sagedalaaedeinw4.Models.entities.Customer
+
+<h2>Create Product</h2>
+
+<form asp-action="Edit" method="post">
+
+
+    <input asp-for="Id" type="hidden" />
+
+    <div>
+        <label>Name</label>
+        <input asp-for="Name" type="text" />
+    </div>
+
+    <div>
+        <label> <b>Email</b></label>
+        <input asp-for="Email" type="email" />
+    </div>
+
+    <div>
+        <label>Phone</label>
+        <input asp-for="Phone" type="number" />
+    </div>
+
+    <div>
+        <label>Address</label>
+        <input asp-for="Address" type="text" />
+    </div>
+
+
+    <button type="submit">Save</button>
+</form>
